@@ -1,0 +1,77 @@
+#Question 1
+#(a) ver.1 : exponential function
+
+import numpy as np
+import matplotlib.pyplot as plt
+
+def BirdPopulation(t,P0,k):
+    return P0*np.exp(-k*t)
+
+P0=1000
+k=0.05
+
+times = np.arange(0,50,1)
+populations = BirdPopulation(times,P0,k)
+
+plt.plot(times,populations)
+plt.xlabel('Years')
+plt.ylabel('Population')
+plt.legend()
+plt.grid(True)
+plt.show()
+
+
+#(a) ver.2 : Power Law Decline
+
+import numpy as np
+import matplotlib.pyplot as plt
+
+def BirdPopulation(t, P0, alpha, beta):
+    return P0 * (1 - alpha * t)**beta
+
+P0=1000
+alpha=0.02
+beta=2.0
+
+times=np.arange(0,50,1)
+populations=BirdPopulation(times,P0,alpha,beta)
+
+plt.plot(times,populations)
+plt.xlabel('Years')
+plt.ylabel('Population')
+plt.legend()
+plt.grid(True)
+plt.show()
+
+
+
+
+
+
+
+
+#(b) sine graph
+
+import numpy as np
+import matplotlib.pyplot as plt
+
+def Pandemic(t, A, phi, B):
+    return A * np.sin(2 * np.pi * t + phi) + B
+
+A=1000
+phi=-np.pi/2
+B=100
+
+times=np.arange(0,10,0.1)
+cases=Pandemic(times,A,phi,B)
+
+plt.plot(times,cases)
+plt.xlabel('Years')
+plt.ylabel('# of Cases')
+plt.legend()
+plt.grid(True)
+plt.show()
+
+
+
+
